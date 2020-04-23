@@ -1,3 +1,6 @@
+#https://raw.githubusercontent.com/PatWalters/workshop/master/predictive_models/neutralize.py
+#https://raw.githubusercontent.com/yamasakih/docker-compose-razi/feature/customize-for-souyakuRB2018/work/souyakuRB2018/desalt.py
+
 import sys
 sys.path.insert(0, "C:/Users/ogawan/cheminfo/desalt")
 df = pd.read_csv("rt_datasets.csv")
