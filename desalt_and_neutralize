@@ -2,7 +2,7 @@
 #https://raw.githubusercontent.com/yamasakih/docker-compose-razi/feature/customize-for-souyakuRB2018/work/souyakuRB2018/desalt.py
 
 import sys
-sys.path.insert(0, "C:/Users/ogawan/cheminfo/desalt")
+sys.path.insert(0, "C:/Users")
 df = pd.read_csv("rt_datasets.csv")
 
 import desalt
