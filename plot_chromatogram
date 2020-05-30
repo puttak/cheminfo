@@ -1,0 +1,23 @@
+#Generate Chromatography:
+predicted_rt = [round(i.item(), 2) for i in preds_uncal ]
+predicted_rt= predicted_rt[0:5]
+import numpy as np
+baseline_time = [round(i,2) for i in np.arange(0, 10, 0.01).tolist()]
+baseline_intensity = [1] * len(baseline_time)
+
+rt_and_intensity = []
+for i in baseline_time:
+    if i in predicted_rt:
+        rt_and_intensity.append([i,2])
+    else:
+        rt_and_intensity.append([i,1])
+
+import pandas as pd
+
+df = pd.DataFrame(rt_and_intensity)
+df.columns =["time", "intensity"]
+
+print(df)
+
+ax = df.plot.scatter(x='time', y='intensity', style='b', figsize=(30,5))
+df.plot.line(x=0, y=1, ax=ax, style='b')
