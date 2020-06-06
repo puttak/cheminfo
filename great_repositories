@@ -1,0 +1,15 @@
+Neutralize Molecules: 
+https://raw.githubusercontent.com/PatWalters/workshop/master/predictive_models/neutralize.py
+
+Standardize and desalt smiles
+https://raw.githubusercontent.com/yamasakih/docker-compose-razi/feature/customize-for-souyakuRB2018/work/souyakuRB2018/desalt.py
+
+Machine learning codes:
+https://github.com/ageron/handson-ml
+
+Feature importance extraction using Random Forest with a clearn code to plot y vs y_pred: 
+https://gist.github.com/yamasakih/6ade9ac8986a00374fe1a2172230acc4
+
+Draw morgan bits: 
+https://gist.github.com/yamasakih/db5c41b191593ce497261be1b7b85db2
+
