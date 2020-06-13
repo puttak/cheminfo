@@ -17,7 +17,6 @@ from rdkit.Chem import AllChem
 from rdkit import Chem
 from rdkit.Chem import Descriptors
 from rdkit.ML.Descriptors import MoleculeDescriptors
-%matplotlib inline
 
 def evaluate_metrics(y, pre_y):
     print("mean_absolute_error:",metrics.mean_absolute_error(y, pre_y))
@@ -74,24 +73,3 @@ def concatenate_chunk(df_chunk):
         chunk_filter = generate_ecfp4_descriptors(chunk.d_smiles, chunk.RETENTION_TIME, "rt")
         chunk_list.append(chunk_filter)
     return pd.concat(chunk_list)
-
-def generate_freature_importance_rf(rf_model, x_train):
-    
-    importances = rf_model.feature_importances_
-    std = np.std([tree.feature_importances_ for tree in rf_model.estimators_],
-                 axis=0)
-    indices = np.argsort(importances)[::-1]
-    fp_num_and_feature_importance = []
-    
-    for f in range(x_train.shape[1]):
-        fp_num_and_feature_importance.append([indices[f],importances[indices[f]]])
-
-    plt.figure()
-    plt.title("Feature importances")
-    plt.bar(range(x_train.shape[1]), importances[indices],
-           color="r", yerr=std[indices], align="center")
-    plt.xticks(range(x_train.shape[1]), indices)
-    plt.xlim([-1, x_train.shape[1]])
-    plt.show()
-    
-    return fp_num_and_feature_importance
