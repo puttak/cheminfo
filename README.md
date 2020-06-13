@@ -7,4 +7,6 @@
     desalt/neutralize molecules,
     generate feature importance using random forest,
     evaluate standard metrics. 
-4. building_simple_nn_model: buidling simple neural network model with batch normalization/dropout for regression using chemical descriptors. 
+4. building_ml_models: buidling lasso, random forest, gradient descent decision tree, simple neural network model with batch normalization/dropout for regression using ECFP4. The small molecules dataset (n= 10000) were extracted from the following paper and converted to ECFP4 using RDkit. 
+
+Domingo-Almenara, X., Guijas, C., Billings, E. et al. The METLIN small molecule dataset for machine learning-based retention time prediction. Nat Commun 10, 5811 (2019). 
