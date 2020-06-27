@@ -3,10 +3,26 @@ RUN apt-get update && apt-get install -y \
     sudo \
     wget \
     vim
-#RUN apt-get install -y python-rdkit librdkit1 rdkit-data #Is this correct way to implement?
-#https://stackoverflow.com/questions/50333650/install-python-package-in-docker-file (how to implement pip install9
+#WORKDIR /opt
+#RUN wget https://repo.continuum.io/archive/Anaconda3-2020.02-Linux-x86_64.sh
 
-#https://hub.docker.com/r/nyuge/rdkit-build/dockerfile
-
+#install anaconda3
 WORKDIR /opt
-RUN wget https://repo.continuum.io/archive/Anaconda3-2020.02-Linux-x86_64.sh
+# download anaconda package and install anaconda
+# archive -> https://repo.continuum.io/archive/
+RUN wget https://repo.continuum.io/archive/Anaconda3-2020.02-Linux-x86_64.sh && \
+sh /opt/Anaconda3-2020.02-Linux-x86_64.sh -b -p /opt/anaconda3 && \
+rm -f Anaconda3-2020.02-Linux-x86_64.sh
+
+# set path
+ENV PATH /opt/anaconda3/bin:$PATH
+
+# update pip and conda
+RUN pip install --upgrade pip
+RUN conda install -c rdkit rdkit
+
+WORKDIR /
+RUN mkdir /work
+
+# execute jupyterlab as a default command
+CMD ["jupyter", "lab", "--ip=0.0.0.0", "--allow-root", "--LabApp.token=''"]
