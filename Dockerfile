@@ -19,7 +19,12 @@ rm -f Anaconda3-2020.02-Linux-x86_64.sh
 ENV PATH /opt/anaconda3/bin:$PATH
 
 # update pip and conda
-RUN pip install --upgrade pip
+RUN pip install --upgrade pip && pip install django \
+	keras \
+	tensorflow \
+	lightgbm \
+	MolVS
+
 RUN conda install -c rdkit rdkit
 
 WORKDIR /
