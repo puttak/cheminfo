@@ -23,10 +23,11 @@ RUN pip install --upgrade pip && pip install django \
 	keras \
 	tensorflow \
 	lightgbm \
-	MolVS
+	MolVS \
+	postgres \
+	pysqlite3
 
 RUN conda install -c rdkit rdkit
-RUN pip install postgres pysqlite3
 RUN apt update -y
 RUN apt install git -y
 
