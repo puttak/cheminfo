@@ -17,7 +17,7 @@ rm -f Anaconda3-2020.02-Linux-x86_64.sh
 # set path
 ENV PATH /opt/anaconda3/bin:$PATH
 
-# update pip and conda
+# update pip and conda, insert requirements if necessary. 
 #COPY requirements.txt .
 RUN pip install --upgrade pip && pip install django \
 	keras \
