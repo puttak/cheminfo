@@ -1,4 +1,3 @@
-#Dockerfile for cheminfo
 FROM ubuntu:latest
 RUN apt-get update && apt-get install -y \
     sudo \
@@ -19,6 +18,7 @@ rm -f Anaconda3-2020.02-Linux-x86_64.sh
 ENV PATH /opt/anaconda3/bin:$PATH
 
 # update pip and conda
+#COPY requirements.txt .
 RUN pip install --upgrade pip && pip install django \
 	keras \
 	tensorflow \
@@ -26,6 +26,9 @@ RUN pip install --upgrade pip && pip install django \
 	MolVS
 
 RUN conda install -c rdkit rdkit
+RUN pip install postgres pysqlite3
+RUN apt update -y
+RUN apt install git -y
 
 WORKDIR /
 RUN mkdir /work
